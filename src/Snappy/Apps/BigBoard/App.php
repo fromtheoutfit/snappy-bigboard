@@ -1,4 +1,4 @@
-<?php namespace Snappy\Apps\ServiceName;
+<?php namespace Snappy\Apps\BigBoard;
 
 use Snappy\Apps\App as BaseApp;
 
@@ -9,14 +9,14 @@ class App extends BaseApp {
 	 *
 	 * @var string
 	 */
-	public $name = 'Application Name';
+	public $name = 'BigBoard';
 
 	/**
 	 * The application description.
 	 *
 	 * @var string
 	 */
-	public $description = 'Application Description';
+	public $description = 'Generate BigBoard events from Snappy.';
 
 	/**
 	 * Any notes about this application
@@ -30,28 +30,28 @@ class App extends BaseApp {
 	 *
 	 * @var string
 	 */
-	public $icon = 'icon.png';
+	public $icon = 'bigboard.png';
 
 	/**
 	 * The application service's website.
 	 *
 	 * @var string
 	 */
-	public $website;
+	public $website = "https://bigboard.us";
 
 	/**
 	 * The application author name.
 	 *
 	 * @var string
 	 */
-	public $author = 'Your Name';
+	public $author = 'Brenden Tamilio';
 
 	/**
 	 * The application author e-mail.
 	 *
 	 * @var string
 	 */
-	public $email = 'Your Email';
+	public $email = 'bren@fromtheoutfit.com';
 
 	/**
 	 * The settings required by the application.
