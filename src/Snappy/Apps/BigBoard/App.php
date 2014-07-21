@@ -76,8 +76,24 @@ class App extends BaseApp {
 	 * @var array
 	 */
 	public $settings = array(
-		array('name' => 'api_token', 'type' => 'text', 'help' => 'Enter your BigBoard API Token', 'validate' => 'required'),
+		array('name' => 'token', 'type' => 'text', 'help' => 'Enter your BigBoard API Token', 'validate' => 'required'),
 	);
  
+ 	/**
+	* Get the BigBoard client instance.
+	*
+	* @return \BigBoardSDK\APIClient
+	*/
+	public function getClient()
+	{
+		$client = new \BigBoardSDK\APIClient($this->config['token']);
+		return $client;
+	}
+
+
+
+
+
+
 
 }
