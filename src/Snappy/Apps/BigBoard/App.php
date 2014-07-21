@@ -4,21 +4,9 @@ namespace Snappy\Apps\BigBoard;
 
 use Snappy\Apps\App as BaseApp;
 
-
-
-use Snappy\Apps\WallPostHandler;
 use Snappy\Apps\IncomingMessageHandler;
 use Snappy\Apps\OutgoingMessageHandler;
-use Snappy\Apps\TicketRepliedHandler;
-use Snappy\Apps\TicketWaitingHandler;
-
-## not sure if we'll need these...
-use Snappy\Apps\ContactCreatedHandler;
-use Snappy\Apps\ContactLookupHandler;
-use Snappy\Apps\TagsChangedHandler;
-
-
-
+ 
 class App extends BaseApp {
 
 	/**
@@ -86,14 +74,56 @@ class App extends BaseApp {
 	*/
 	public function getClient()
 	{
-		$client = new \BigBoardSDK\APIClient($this->config['token']);
-		return $client;
+		return new \BigBoardSDK\APIClient($this->config['token']);
 	}
 
 
+   /**
+	* Track an incoming message
+	*
+	* @param array $message
+	* @return void
+	*/
+	public function handleIncomingMessage (array $message)
+	{
+		$client = $this->getClient();
 
+		$status = $client->sendEvent(
+			array (
+			    "person_id" => $message['creator']['value'],
+			    "person_label" =>  $message['creator']['first_name'].' '. $message['creator']['last_name'],
+			    "summary" => $message["ticket"]['default_subject'],
+			    "time" => strtotime($message['updated_at']), 
+			    "label" => "Incoming Message"
+			    'unique_id' => $message['id']."_".$message['ticket_id'],
+			    "url"	=> "https://app.besnappy.com/home#ticket/".$message['ticket_id'],
+			)
+		);
+ 	
+	}
 
+   /**
+	* Track an outgoing message
+	*
+	* @param array $message
+	* @return void
+	*/
+	public function handleOutgoingMessage (array $message)
+	{
+		$client = $this->getClient();
 
-
+		$status = $client->sendEvent(
+			array (
+			    "person_id" => $message['creator']['email'],
+			    "person_label" =>  $message['creator']['first_name'].' '. $message['creator']['last_name'],
+			    "summary" => $message["ticket"]['default_subject'],
+			    "time" => strtotime($message['updated_at']), 
+			    "label" => "Outgoing Message"
+			    'unique_id' => $message['id']."_".$message['ticket_id'],
+			    "url"	=> "https://app.besnappy.com/home#ticket/".$message['ticket_id'],
+			)
+		);
+ 	
+	}
 
 }
