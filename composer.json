@@ -9,7 +9,8 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "snappy/app-support": "dev-master"
+        "snappy/app-support": "dev-master",
+        "fromtheoutfit/bigboard-php-sdk": "*"
     },
     "autoload": {
         "classmap": [

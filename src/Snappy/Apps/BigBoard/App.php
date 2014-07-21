@@ -1,6 +1,23 @@
-<?php namespace Snappy\Apps\BigBoard;
+<?php 
+
+namespace Snappy\Apps\BigBoard;
 
 use Snappy\Apps\App as BaseApp;
+
+
+
+use Snappy\Apps\WallPostHandler;
+use Snappy\Apps\IncomingMessageHandler;
+use Snappy\Apps\OutgoingMessageHandler;
+use Snappy\Apps\TicketRepliedHandler;
+use Snappy\Apps\TicketWaitingHandler;
+
+## not sure if we'll need these...
+use Snappy\Apps\ContactCreatedHandler;
+use Snappy\Apps\ContactLookupHandler;
+use Snappy\Apps\TagsChangedHandler;
+
+
 
 class App extends BaseApp {
 
@@ -44,20 +61,23 @@ class App extends BaseApp {
 	 *
 	 * @var string
 	 */
-	public $author = 'Brenden Tamilio';
+	public $author = 'The Outfit, Inc.';
 
 	/**
 	 * The application author e-mail.
 	 *
 	 * @var string
 	 */
-	public $email = 'bren@fromtheoutfit.com';
+	public $email = 'support@fromtheoutfit.com';
 
 	/**
 	 * The settings required by the application.
 	 *
 	 * @var array
 	 */
-	public $settings = array();
+	public $settings = array(
+		array('name' => 'api_token', 'type' => 'text', 'help' => 'Enter your BigBoard API Token', 'validate' => 'required'),
+	);
+ 
 
 }
