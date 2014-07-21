@@ -3,6 +3,10 @@
     "description": "",
     "authors": [
         {
+            "name": "The Outfit, Inc.",
+            "email": "hello@fromtheoutfit.com"
+        },
+        {
             "name": "Brenden Tamilio",
             "email": "bren@fromtheoutfit.com"
         }
