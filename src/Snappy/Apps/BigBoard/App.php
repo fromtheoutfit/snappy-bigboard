@@ -7,7 +7,7 @@ use Snappy\Apps\App as BaseApp;
 use Snappy\Apps\IncomingMessageHandler;
 use Snappy\Apps\OutgoingMessageHandler;
  
-class App extends BaseApp {
+class App extends BaseApp implements IncomingMessageHandler, OutgoingMessageHandler {
 
 	/**
 	 * The name of the application.
@@ -95,7 +95,7 @@ class App extends BaseApp {
 			    "person_label" =>  $message['creator']['first_name'].' '. $message['creator']['last_name'],
 			    "summary" => $message["ticket"]['default_subject'],
 			    "time" => strtotime($message['updated_at']), 
-			    "label" => "Incoming Message"
+			    "label" => "Incoming Message",
 			    'unique_id' => $message['id']."_".$message['ticket_id'],
 			    "url"	=> "https://app.besnappy.com/home#ticket/".$message['ticket_id'],
 			)
@@ -119,7 +119,7 @@ class App extends BaseApp {
 			    "person_label" =>  $message['creator']['first_name'].' '. $message['creator']['last_name'],
 			    "summary" => $message["ticket"]['default_subject'],
 			    "time" => strtotime($message['updated_at']), 
-			    "label" => "Outgoing Message"
+			    "label" => "Outgoing Message",
 			    'unique_id' => $message['id']."_".$message['ticket_id'],
 			    "url"	=> "https://app.besnappy.com/home#ticket/".$message['ticket_id'],
 			)
