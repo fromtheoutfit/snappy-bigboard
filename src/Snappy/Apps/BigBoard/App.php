@@ -28,7 +28,7 @@ class App extends BaseApp {
 	 *
 	 * @var string
 	 */
-	public $notes = 'Application Notes';
+	public $notes = '<p>To generate an API Token, visit your <a href="https://bigboard.us/account/settings/services" target="_blank">BigBoard Service Settings</a> and choose "Connect an app with our API". After you\'ve registered Snappy, copy and paste the generated API token here.</p>";
 
 	/**
 	 * The application's icon filename.
