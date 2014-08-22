@@ -28,7 +28,7 @@ class App extends BaseApp implements IncomingMessageHandler, OutgoingMessageHand
 	 *
 	 * @var string
 	 */
-	public $notes = '<p>To generate an API Token, visit your <a href="https://bigboard.us/account/settings/services" target="_blank">BigBoard Service Settings</a> and choose "Connect an app with our API". After you\'ve registered Snappy, copy and paste the generated API token here.</p>';
+	public $notes = 'To get an Access Token, visit your <a href="https://bigboard.us/account/settings/services" target="_blank">BigBoard Service Settings</a>, select Snappy from the list of services, and follow the instructions there. (It’s easy!)';
 
 	/**
 	 * The application's icon filename.
