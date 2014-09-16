@@ -13,8 +13,8 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "snappy/app-support": "dev-master",
-        "fromtheoutfit/bigboard-sdk-php": "dev-master"
+        "snappy/app-support": "~1.0",
+        "fromtheoutfit/bigboard-sdk-php": "v1.0.1"
     },
     "autoload": {
         "classmap": [
